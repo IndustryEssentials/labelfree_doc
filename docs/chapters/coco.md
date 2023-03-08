@@ -1,20 +1,49 @@
+coco数据集官网：https://cocodataset.org/#format-data
 
-COCO数据集 ——stuff segmentation：https://cocodataset.org/#format-data
+labelfree扩展信息
 
-### 目录结构
+- shape：图形类型
+- meta：元数据
+  - annotator：标注员数据
+  - points：点、线数据
+  - result_type：结果类型，ground_truth为实际结果,consensus_test为一致性测试结果
 
-```yml
-coco_dir
- ├── annotations
- │   └── stuff_images.json
- └── images
-     ├── 1.jpg
-     ├── 2.jpg
-     ├── ...jpg
-     └── xxx.jpg
+
+```
+{==
+           "shape": "point",                            // 图形类型
+            "meta": {                                    // labelfree 元数据
+                "annotator": "labeluser@qq.com",         // 标注员数据
+                "points": [{"x":100, "y": 120}],         // 点数据
+                "result_type": "consensus_test",         // ground_truth为实际结果,consensus_test为一致性测试结果
+            }
+==}
 ```
 
-### 示例:
+
+
+## 目录结构
+
+```JSON
+coco
+  ├── annotations
+  │   ├── stuff_train2014.json
+  │   ├── stuff_train2017.json
+  │   ├── stuff_val2014.json
+  │   ├── stuff_val2017.json
+  │   |   ...
+  ├── train2017
+  │   ├── 000000000009.jpg
+  │   ├── 000000580008.jpg
+  │   |   ...
+  ├── val2017
+  │   ├── 000000000139.jpg
+  │   ├── 000000000285.jpg
+  │   |   ...
+  |   ...
+```
+
+Demo:
 
 ```JSON
 {
@@ -72,21 +101,28 @@ coco_dir
                 "area": 154.0,
                 "bbox": [123, 243, 134, 14],
                 "category_id": 100,
-                "iscrowd": 0
+                "iscrowd": 0,
+                "shape": "point",
+                "meta": {
+                    "annotator": "labeluser@qq.com",
+                    "points": [{"x":100, "y": 120}]
+                }
             }
         ]
 }
 ```
 
+## Annotation文件格式
+
 ### 总体格式：
 
 ```JSON
 {
-    "info": info,               #字典,图片基本信息，时间，版本，贡献者，可为空
-    "licenses": [license],      #列表，内容为字典，版权许可证，可为空
-    "images":[image],           #列表，内容为字典，列表长度等同于划入训练集（或验证集）的图片数量
-    "annotations":[annotation], #列表，内容为字典，列表长度等同地训练集（或验证集）中bounding box的数量
-    "categories":[category]     #列表，内容为字典，列表长度等同于数据集类别的数
+    "info":  info,               // 字典,图片基本信息，时间，版本，贡献者，可为空
+    "licenses":  [license],      //列表，内容为字典，版权许可证，可为空
+    "images":[image],            // 列表，内容为字典
+    "annotations":[annotation],  // 列表，内容为字典
+    "categories":[category]      // 列表，内容为字典，列表长度等同于数据集类别的数
 }
 ```
 
@@ -95,12 +131,12 @@ coco_dir
 ```JSON
  "info": 
         {
-        "description": "COCO 2017 Dataset",     # 描述
-        "url": "http://cocodataset.org",        # 图片地址
-        "version": "1.0",                       # 版本
-        "year": 2017,                           # 年份
-        "contributor": "COCO Consortium",       # 贡献者
-        "date_created": "2017/09/01"            # 创建时间
+        "description": "COCO 2017 Dataset",     // 描述
+        "url": "http://cocodataset.org",        // 图片地址
+        "version": "1.0",                       // 版本
+        "year": 2017,                           // 年份
+        "contributor": "COCO Consortium",       // 贡献者
+        "date_created": "2017/09/01"            // 创建时间
     }
 ```
 
@@ -109,9 +145,9 @@ coco_dir
 ```JSON
 "licenses": [
         {
-            "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/", #许可证网路路径
-            "id": 1,                                                    #许可证ID
-            "name": "Attribution-NonCommercial-ShareAlike License"      #许可证名称
+            "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",  // 许可证网路路径
+            "id": 1,                                                     // 许可证ID
+            "name": "Attribution-NonCommercial-ShareAlike License"       // 许可证名称
         }]
         
 ```
@@ -121,18 +157,32 @@ coco_dir
 ```JSON
    "images": 
         [{
-            "license": 4,                                                           # license id
-            "file_name": "000000397133.jpg",                                        # 图片文件名 
-            "coco_url": "http://images.cocodataset.org/val2017/000000397133.jpg",   # 图片网络地址路径
-            "height": 427,                                                          # 图像高度
-            "width": 640,                                                           # 图像宽度
-            "date_captured": "2013-11-14 17:02:52",                                 #拍摄日期
-            "flickr_url": "http://farm7.staticflickr.com/6116/625519_z.jpg",        #flickr网络地址
-            "id": 397133                                                            #图片的身份ID
+            "license": 4,                                            // license id
+            "file_name": "000000397133.jpg",                         //图片文件名 
+            "coco_url": "http://labelfree.com/val2017/397133.jpg",   //图片网络地址路径
+            "height": 427,                                           // 图像高度
+            "width": 640,                                            // 图像宽度
+            "date_captured": "2013-11-14 17:02:52",                  //拍摄日期
+            "flickr_url": "http://ickr.com/6116/2c9e_z.jpg",         // flickr网络地址
+            "id": 397133                                             //图片的身份ID
         }] 
 ```
 
-annotation内容：
+### categories内容：
+
+```JSON
+"categories":
+[
+    {
+    "supercategory":"person",      // 主类名
+    "id":1,                        // 标签类别ID
+    "name":"person"                // 子类名
+    }
+]
+```
+
+### annotation内容：
+
 
 ```JSON
  "annotations":[
@@ -146,64 +196,57 @@ annotation内容：
                     423.01,
                     510.45,
                     423.01
-                ]                       # 分割信息（具体解释见下文）
+                ]                                        // 分割信息
             ],
-            "area": 702.1057499999998,  #segmentation的面积
-            "iscrowd": 0,               #polygon or rle
-            "image_id": 289343,         #图片的身份ID
+            "area": 702.1057499999998,                   //segmentation的面积
+            "iscrowd": 0,                                // 0：多边形 1: rle编码的mask
+            "image_id": 289343,                          // 图片的身份ID
             "bbox":[
                 473.07,
                 395.93,
                 38.65,
-                28.67],                 #目标框位置 [x,y,width,height]左上角顶点坐标以及宽、高
-            "category_id": 18,          #标签类别ID
-            "id": 1768                  #框的身份编号
+                28.67],                                  // 目标框位置 [x,y,width,height]
+            "category_id": 18,                           // 标签类别ID
+            "id": 1768,                                  // 框的身份编号
+            "shape": "point",                            // 图形类型
+            "meta": {                                    // labelfree 元数据
+                "annotator": "labeluser@qq.com",         // 标注员数据
+                "points": [{"x":100, "y": 120}],         // 点数据
+                "result_type": "consensus_test",         // ground_truth为实际结果,consensus_test为一致性测试结果
+            }
         }]
 ```
 
-segmentation内容
+### segmentation内容
 
-- "iscrowd": 0 表示轮廓用Polygon(多边形的点)表示
+#### 多边形
+
+- "iscrowd": 0 
 
 ```JSON
 "segmentation": [
-                [
-                    510.66,
-                    423.01,
-                    511.72,
-                    ...
-                    423.01,
-                    510.45,
-                    423.01
-                ]   ,
-                [
-                    510.66,
-                    423.01,
-                    511.72,
-                    ...
-                    423.01,
-                    510.45,
-                    423.01
-                ]   
+    [
+        289.74,
+        443.39,
+        289.74,
+        443.39
+    ],
+    [
+        289.74,
+        443.39,
+        289.74,
+        443.39
+    ]
 ]
 ```
 
-- "iscrowd": 1 表示轮廓用RLE编码表示
+#### 掩膜
+
+- "iscrowd": 1 
 
 ```JSON
  "segmentation": {
             "size": [300, 300],
             "counts": "`l>Y1R83N1O00O10000001OO1000000000000000000000000000000000000000000O10O10000000000000000000000000001O0000000000000000000000000000000000000000000000O10000000000001O00000000000000000001O0000000O10000000000000000000000000000000000000000000000001O00000000000000000000000000000000000000001O000001O000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d1"
         },
-```
-
-categories内容：
-
-```JSON
-    "categories":
-            [{
-            "supercategory":"person",#主类名
-            "id":1,#标签类别ID
-            "name":"person"#子类名
-            }]
 ```

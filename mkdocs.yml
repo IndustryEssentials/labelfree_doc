@@ -7,7 +7,9 @@ theme:
     - navigation.instant
     - navigation.expand
     - content.tabs.link
+    - navigation.tabs
     - navigation.top
+    - toc.integrate
   palette:
     # Palette toggle for light mode
     - scheme: default
@@ -83,7 +85,8 @@ nav:
   - 数据格式:
       - COCO: chapters/coco.md
       - VOC: chapters/voc.md
-      # - YOLO: chapters/yolo.md
+      - 标签信息: chapters/tag.md
+      - if_data: chapters/if_data.md
       # - LabelFree: chapters/labelfree.md
   - 关于: about.md
 plugins:

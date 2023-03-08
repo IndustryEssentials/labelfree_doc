@@ -1,6 +1,5 @@
-## VOC数据集
 ### 目标检测
-文件结构：
+#### 文件结构：
 
 ```ini
 taskname.zip/
@@ -15,10 +14,15 @@ taskname.zip/
 
 ```
 
-xml格式：
-自定义字段:
+#### xml格式：
 
-- rotate_angle: 旋转角度，顺时针为正，单位为度
+基于voc补充的自定义字段如下：
+
+- **rotate_angle**: 旋转角度，顺时针为正，单位为度
+- **labelfree_object**：一致性、准确性测试生成的标注结果
+- **meta**：元数据，用于扩展数据
+  - **annotator**： 标注员信息
+
 
 ```XML
 <annotation>
@@ -35,6 +39,24 @@ xml格式：
     <depth>3</depth>                                # 图像深度，也就是通道数
   </size>
   <segmented>1</segmented>                          # 图像是否用于分割
+{==
+<labelfree_object>                                  # labelfree生成对象，来自一致性测试
+    <name>aeroplane</name>                          # 目标的类别名
+    <pose>Frontal</pose>                            # 拍摄角度，Unspecified
+    <truncated>0</truncated>                        # 是否被截断，0表示完整未截断
+    <difficult>0</difficult>
+    <meta>                                          # labelfree自定义元信息
+        <annotator>test3@intellif.com</annotator>   # 标注员信息
+    </meta>               
+    <bndbox>                                        # 边界框信息
+      <xmin>104</xmin>                              # 左上角x
+      <ymin>78</ymin>                               # 左上角y
+      <xmax>375</xmax>                              # 右下角x
+      <ymax>183</ymax>                              # 右下角y
+      <rotate_angle>2.889813</rotate_angle>         # 旋转角度,默认为0，顺时针为正
+    </bndbox>
+</labelfree_object>
+==} 
   <object>                                          # 一个目标对象的信息
     <name>aeroplane</name>                          # 目标的类别名
     <pose>Frontal</pose>                            # 拍摄角度，Unspecified
@@ -55,8 +77,9 @@ xml格式：
 </annotation>
 ```
 ### 语义分割
-目录结构
-```
+#### 目录结构
+
+```ini
 demo_dir
  ├── annotations
  │   ├── labelmap.txt
@@ -69,7 +92,8 @@ demo_dir
      ├── 2.jpg
      └── 3.jpg
 ```
-labelmap.txt格式
+#### labelmap.txt格式
+
 ```
 # labelmap.txt
 # label : color (RGB) : 'body' parts : actions

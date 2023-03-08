@@ -1,0 +1,15 @@
+image: "python:3.9"
+
+pages:
+  tags:
+    - html
+  stage: deploy
+  script:
+    - pip install mkdocs-material mkdocs-glightbox
+    - mkdocs build --clean
+    - mv site public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
