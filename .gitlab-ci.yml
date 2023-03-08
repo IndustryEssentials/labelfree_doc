@@ -5,11 +5,9 @@ pages:
     - html
   stage: deploy
   script:
-    - pip install mkdocs-material mkdocs-glightbox
+    - pip install mkdocs-material mkdocs-glightbox minio
     - mkdocs build --clean
-    - mv site public
-  artifacts:
-    paths:
-      - public
+    - python upload_minio.py
+
   only:
     - master
