@@ -1,5 +1,4 @@
 from minio import Minio
-from minio.error import ResponseError
 import os
 
 # Initialize minioClient with an endpoint and access/secret keys.
@@ -15,10 +14,8 @@ def upload_directory(directory, bucket_name, minioClient):
             file_path = os.path.join(dirpath, filename)
             with open(file_path, 'rb') as file_data:
                 file_stat = os.stat(file_path)
-                try:
-                    minioClient.put_object(bucket_name, file_path, file_data, file_stat.st_size)
-                except ResponseError as err:
-                    print(err)
+                minioClient.put_object(bucket_name, file_path, file_data, file_stat.st_size)
+
 
 # Upload directory 'test' to Minio bucket 'my-bucketname'
 upload_directory('site', 'labelfree', minioClient)
