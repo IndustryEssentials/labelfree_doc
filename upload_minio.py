@@ -2,8 +2,8 @@ from minio import Minio
 import os
 
 # Initialize minioClient with an endpoint and access/secret keys.
-minioClient = Minio('192.168.14.42:9000',
-                    access_key='AKIAIOSFODNN7EXAMPLE',
+minioClient = Minio('192.168.12.137:9000',
+                    access_key='labelfree',
                     secret_key='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
                     secure=False)
 
@@ -12,9 +12,8 @@ def upload_directory(directory, bucket_name, minioClient):
     for dirpath, dirnames, filenames in os.walk(directory):
         for filename in filenames:
             file_path = os.path.join(dirpath, filename)
-            with open(file_path, 'rb') as file_data:
-                file_stat = os.stat(file_path)
-                minioClient.put_object(bucket_name, file_path, file_data, file_stat.st_size)
+            object_name = os.path.join(bucket_name, file_path)
+            res = minioClient.fput_object(bucket_name, object_name, file_path)
 
 
 # Upload directory 'test' to Minio bucket 'my-bucketname'
