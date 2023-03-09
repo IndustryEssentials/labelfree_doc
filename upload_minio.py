@@ -1,6 +1,9 @@
 from minio import Minio
 import os
 import glob
+import magic
+mime = magic.Magic(mime=True)
+
 # Initialize minioClient with an endpoint and access/secret keys.
 minioClient = Minio('192.168.12.137:9000',
                     access_key='labelfree',
@@ -18,7 +21,9 @@ def upload_directory(directory, bucket_name, minioClient):
             #     file_stat = os.stat(file_path)
             # minioClient.put_object(
             #             bucket_name, file_path, file_data, file_stat.st_size)
-            res = minioClient.fput_object(bucket_name, f"site/{file_path}", file_path)
+            content_type = mime.from_file(file_path)
+            res = minioClient.fput_object(
+                bucket_name, f"{file_path}", file_path, content_type=content_type)
               
 
 
