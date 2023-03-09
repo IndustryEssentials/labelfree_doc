@@ -2,8 +2,8 @@ from minio import Minio
 import os
 
 # Initialize minioClient with an endpoint and access/secret keys.
-minioClient = Minio('192.168.12.139:9000',
-                    access_key='labelfree',
+minioClient = Minio('192.168.14.42:9000',
+                    access_key='AKIAIOSFODNN7EXAMPLE',
                     secret_key='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',
                     secure=False)
 
