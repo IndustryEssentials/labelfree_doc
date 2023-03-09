@@ -1,5 +1,6 @@
 site_name: LabelFree文档中心
 edit_uri: ""
+use_directory_urls: false
 theme:
   name: material
   language: zh
@@ -92,6 +93,5 @@ nav:
 plugins:
   - glightbox
   - search
-use_directory_urls: false
 extra_css:
   - stylesheets/extra.css
