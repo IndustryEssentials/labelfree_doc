@@ -10,20 +10,17 @@ minioClient = Minio('192.168.12.137:9000',
 # Function to upload a directory to a Minio bucket.
 
 
-def upload_local_directory_to_minio(local_path: str, bucket_name: str):
-    assert os.path.isdir(local_path)
-
-    for local_file in glob.glob(local_path + '/**'):
-        local_file = local_file.replace(os.sep, "/")
-        if not os.path.isfile(local_file):
-            upload_local_directory_to_minio(
-                local_file, bucket_name)
-        else:
-            remote_path = os.path.join(
-                local_file[1 + len(local_path):])
-            remote_path = remote_path.replace(
-                os.sep, "/")
-            minioClient.fput_object(bucket_name, remote_path, local_file)
+def upload_directory(directory, bucket_name, minioClient):
+    for dirpath, dirnames, filenames in os.walk(directory):
+        for filename in filenames:
+            file_path = os.path.join(dirpath, filename)
+            # with open(file_path, 'rb') as file_data:
+            #     file_stat = os.stat(file_path)
+            # minioClient.put_object(
+            #             bucket_name, file_path, file_data, file_stat.st_size)
+            res = minioClient.fput_object(bucket_name, f"site/{file_path}", file_path)
+            print(res.geturl())
+              
 
 
 # delete directory 'test' from Minio bucket 'my-bucketname'
@@ -37,4 +34,4 @@ def deleteFolder(bucketname, folderName):
 deleteFolder('labelfree', 'site')
 
 # Upload directory 'test' to Minio bucket 'my-bucketname'
-upload_local_directory_to_minio('site', 'labelfree')
+upload_directory('site', 'labelfree', minioClient)
