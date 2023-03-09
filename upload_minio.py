@@ -12,8 +12,7 @@ def upload_directory(directory, bucket_name, minioClient):
     for dirpath, dirnames, filenames in os.walk(directory):
         for filename in filenames:
             file_path = os.path.join(dirpath, filename)
-            object_name = os.path.join(bucket_name, file_path)
-            res = minioClient.fput_object(bucket_name, object_name, file_path)
+            res = minioClient.fput_object(bucket_name, filename, file_path)
             print(res)
 
 
