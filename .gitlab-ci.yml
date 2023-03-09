@@ -5,7 +5,7 @@ pages:
     - html
   stage: deploy
   script:
-    - pip install mkdocs-material mkdocs-glightbox minio filemime
+    - pip install mkdocs-material mkdocs-glightbox minio filemime  -i https://pypi.douban.com/simple/
     - mkdocs build --clean
     - python upload_minio.py
 
