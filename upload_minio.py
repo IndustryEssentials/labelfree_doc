@@ -1,7 +1,6 @@
 from minio import Minio
 import os
-import glob
-import mimetypes
+
 from filemime import filemime
 obj = filemime()
 # Initialize minioClient with an endpoint and access/secret keys.
