@@ -5,7 +5,7 @@ pages:
     - html
   stage: deploy
   script:
-    - pip install mkdocs-material mkdocs-glightbox minio python-magic
+    - pip install mkdocs-material mkdocs-glightbox minio filetype
     - mkdocs build --clean
     - python upload_minio.py
 
