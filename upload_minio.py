@@ -1,6 +1,6 @@
 from minio import Minio
 import os
-
+import glob
 # Initialize minioClient with an endpoint and access/secret keys.
 minioClient = Minio('192.168.12.137:9000',
                     access_key='labelfree',
@@ -37,4 +37,4 @@ def deleteFolder(bucketname, folderName):
 deleteFolder('labelfree', 'site')
 
 # Upload directory 'test' to Minio bucket 'my-bucketname'
-upload_directory('site', 'labelfree', minioClient)
+upload_local_directory_to_minio('site', 'labelfree')
