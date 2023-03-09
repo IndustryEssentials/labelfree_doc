@@ -18,4 +18,4 @@ def upload_directory(directory, bucket_name, minioClient):
 
 
 # Upload directory 'test' to Minio bucket 'my-bucketname'
-upload_directory('site', 'labelfree', minioClient)
+upload_directory('site', 'asiatrip', minioClient)
