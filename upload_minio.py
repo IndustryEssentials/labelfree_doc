@@ -19,7 +19,6 @@ def upload_directory(directory, bucket_name, minioClient):
             # minioClient.put_object(
             #             bucket_name, file_path, file_data, file_stat.st_size)
             res = minioClient.fput_object(bucket_name, f"site/{file_path}", file_path)
-            print(res.geturl())
               
 
 
