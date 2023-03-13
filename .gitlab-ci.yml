@@ -1,13 +1,21 @@
-image: "python:3.9"
+stages:
+  - docker_image
+  - deploy
 
-pages:
+build-job:       # This job runs in the build stage, which runs first.
+  stage: docker_image
   tags:
     - html
-  stage: deploy
   script:
-    - pip install mkdocs-material mkdocs-glightbox minio filemime  -i https://pypi.douban.com/simple/
-    - mkdocs build --clean
-    - python upload_minio.py
+    - docker stop laeblfre_doc
+    - docker rm laeblfre_doc
+    - docker rmi labelfree/opne_doc:latest
+    - docker build -t labelfree/opne_doc:latest .
 
-  only:
-    - master
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  tags:
+    - html
+  script:
+
+    - docker run -d -p 18002:80 --name laeblfre_doc -v  labelfree/opne_doc:latest
