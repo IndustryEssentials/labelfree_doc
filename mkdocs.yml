@@ -42,7 +42,7 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
@@ -66,9 +66,9 @@ nav:
       - 图像分类: chapters/classification.md
       - 数据导出: chapters/quickstart-export.md
   - 用户手册:
-      - 部署: 
-        - Docker: chapters/docker-deploy.md
-        - EXE安装包: chapters/exe_install.md
+      - 部署:
+          - Docker: chapters/docker-deploy.md
+          - EXE安装包: chapters/exe_install.md
       - 配置: chapters/manual/conf.md
       - 项目管理:
           - 新建项目: chapters/manual/createproject.md
