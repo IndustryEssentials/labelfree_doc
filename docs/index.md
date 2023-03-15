@@ -4,7 +4,10 @@ hide:
   - toc
 ---
 
-LabelFree slogan
+<figure markdown>
+  ![Image title](./assets/logo.jpg){ width="450" }
+  <figcaption>LabelFree slogan ...</figcaption>
+</figure>
 
 ## 1 特性
 

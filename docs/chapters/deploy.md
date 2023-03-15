@@ -1,8 +1,15 @@
-LabelFree目前支持两种部署方式：
+---
+hide:
+  - navigation
+---
 
+LabelFree 以下部署方式：
+
+- windows exe安装包
+- Docker
 - Docker Compose
-- exe安装包
-!!! example
+
+!!! info "部署方式"
     === "windows exe安装包"
         
         ### 1 下载安装包
@@ -14,8 +21,8 @@ LabelFree目前支持两种部署方式：
     === "docker"
 
         ### 请执行以下命令
-        ```bash
-        docker run -it -p 6543:80  -v `pwd`/labelfree_data/mysql_data:/var/lib/mysql -v `pwd`/labelfree_data/redis_data:/redis_data -v `pwd`/labelfree_data/minio_data:/minio_data -d labelfree_single:latest
+        ```bash title="docekr 模式"
+        docker run -p 8080:80  -v ./lbf/db:/var/lib/mysql -v ./lbf/cache:/redis_data -v ./lbf/minio:/minio_data -d labelfree/lite:latest
         ```
         
     === "docker-compose"
@@ -30,7 +37,7 @@ LabelFree目前支持两种部署方式：
         ```
 
         ### 2 启动
-        ```bash
+        ```bash title="docekr compose 模式"
         docker-compose up -d
         ```
         !!! note
