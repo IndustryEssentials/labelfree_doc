@@ -1,7 +1,7 @@
 # build stage
 FROM python:3.9 as build-stage
 WORKDIR /app
-RUN pip install mkdocs-material mkdocs-glightbox
+RUN pip install mkdocs-material==9.1.2 mkdocs-glightbox
 COPY . /app
 RUN mkdocs build --clean
 
