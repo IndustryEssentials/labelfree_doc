@@ -6,10 +6,10 @@ theme:
   language: zh
   features:
     - navigation.instant
-    - navigation.expand
+    # - navigation.expand
     - content.tabs.link
-    - navigation.tabs
-    - navigation.top
+    # - navigation.tabs
+    # - navigation.top
     - content.code.copy
     # - toc.integrate
   palette:
@@ -73,6 +73,7 @@ nav:
       - 项目管理:
           - 新建项目: chapters/manual/createproject.md
           - 项目详情: chapters/manual/projectdetail.md
+          - 项目设置: chapters/manual/projectsetting.md
           # - 数据导入: chapters/manual/import.md
       - 用户管理:
           - 权限管理: chapters/manual/user.md
@@ -87,8 +88,8 @@ nav:
   - 数据格式:
       - COCO: chapters/coco.md
       - VOC: chapters/voc.md
-      - 标签信息: chapters/tag.md
       - if_data: chapters/if_data.md
+      - 标签信息: chapters/tag.md
       # - LabelFree: chapters/labelfree.md
   - 关于: about.md
 plugins:

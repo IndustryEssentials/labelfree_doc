@@ -1,7 +1,7 @@
----
+<!-- ---
 hide:
   - navigation
----
+--- -->
 
 LabelFree 以下部署方式：
 

@@ -1,15 +1,14 @@
 ---
 hide:
-  - navigation
   - toc
 ---
 
 <figure markdown>
   ![Image title](./assets/logo.jpg){ width="450" }
-  <figcaption>LabelFree slogan ...</figcaption>
+  <!-- <figcaption>LabelFree 标注系统</figcaption> -->
 </figure>
 
-## 1 特性
+## 特性
 
 - **简单**。简化概念，快速上手，只为数据标注。
 - **高性能**。支持**超大数据集标注**、流畅**多人在线标注**体验。
@@ -33,18 +32,3 @@ hide:
 </table>
 </div>
 
-## 2 更新日志
-4.0.0更新内容：
-
-### 新功能：
-- 支持[图像分类](./chapters/classification.md)
-- 支持批量标注
-- 支持预标注多级标签导入
-
-### 优化:
-
-- 全面提升标注相关查询速度，优化标注体验
-- 提升数据加载性能
-
-### 修复:
-- zip包中包含中文小概率发生乱码问题
