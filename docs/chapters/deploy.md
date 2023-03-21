@@ -13,7 +13,8 @@ LabelFree 以下部署方式：
     === "windows exe安装包"
         
         ### 1 下载安装包
-        点击下载：[labelfree](http://113.100.143.90:9090/labelfree/labelfree_app.zip)
+        点击下载： [labelfree](https://github.com/IndustryEssentials/label-free/releases/download/4.1.0/labelfree_app.zip)
+        
         ### 2 安装
         双击安装包，解压后双击`LabelFree.exe`启动。
 

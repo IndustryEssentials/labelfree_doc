@@ -26,7 +26,7 @@ labelfree正常运行需要网络环境提供如下的网络端口配置要求�
 ### 3.安装步骤
 
 1 下载安装包
-点击下载： [labelfree](http://113.100.143.90:9090/asiatrip/1/f331231c-67ef-4507-97b7-d417e672d89c.zip)
+点击下载： [labelfree](https://github.com/IndustryEssentials/label-free/releases/download/4.1.0/labelfree_app.zip)
 
 2 安装
 双击安装包，解压后双击`LabelFree.exe`启动。
