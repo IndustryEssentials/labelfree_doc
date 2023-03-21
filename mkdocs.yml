@@ -91,7 +91,10 @@ nav:
       - IF_DATA: chapters/if_data.md
       - 标签信息: chapters/tag.md
       # - LabelFree: chapters/labelfree.md
-  - 关于: about.md
+  - 关于: 
+      - 联系: about.md
+      - 版本更新: chapters/changelog.md
+      - 常见问题: chapters/fq.md
 plugins:
   - glightbox
   - search
