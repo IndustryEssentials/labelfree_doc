@@ -22,7 +22,7 @@ LabelFree 以下部署方式：
 
         ### 请执行以下命令
         ```bash title="docekr 模式"
-        docker run -p 8080:80  -v ./lbf/db:/var/lib/mysql -v ./lbf/cache:/redis_data -v ./lbf/minio:/minio_data -d labelfree/lite:latest
+        docker run -p 8080:80  -v `pwd`/lbf/db:/var/lib/mysql -v `pwd`/lbf/cache:/redis_data -v `pwd`/lbf/minio:/minio_data -d labelfree/lite:latest
         ```
         
     === "docker-compose"

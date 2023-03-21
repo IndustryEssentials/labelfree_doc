@@ -42,7 +42,7 @@
 
 3.  部署
   
-    -  支持windows环境下[exe部署](./chapters/deploy.md)
+    -  支持windows环境下[exe部署](./deploy.md)
     -  支持单容器docekr部署
 
 
