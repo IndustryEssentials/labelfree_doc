@@ -35,15 +35,5 @@ pipeline {
         //     }
     }
 
-    // post{
-    //     success{
-    //         echo "========pipeline executed successfully ========"
-    //         sh """
-    //         curl -X POST -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"后端测试环境已更新"}}' https://open.feishu.cn/open-apis/bot/v2/hook/87319123-33a9-48d5-9104-fc6bc0a7b0d7
-    //         """
-    //     }
-    //     failure{
-    //         echo "========pipeline execution failed========"
-    //     }
-    // }
+
     }
