@@ -2,8 +2,11 @@
 hide:
   - navigation
 --- -->
-
+!!! tip inline end
+    最新支持Segment Anything,目前仅支持docker-compose部署方式，其他方式将在后续版本支持。
 LabelFree 以下部署方式：
+
+
 
 - windows exe安装包
 - Docker
