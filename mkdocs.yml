@@ -4,6 +4,7 @@ use_directory_urls: false
 theme:
   name: material
   language: zh
+  font: false
   features:
     - navigation.instant
     # - navigation.expand
