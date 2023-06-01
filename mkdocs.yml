@@ -62,7 +62,8 @@ nav:
   - 一键部署: chapters/deploy.md
   - 快速开始:
       - 创建项目: chapters/quickstart-createproject.md
-      - 目标检测: chapters/box.md
+      - 多模态设置: chapters/note.md
+      - 目标检测: chapters/box.md 
       - 图像分割（语义、实例）: chapters/seg.md
       - 图像分类: chapters/classification.md
       - 数据导出: chapters/quickstart-export.md
